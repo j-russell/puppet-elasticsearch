@@ -1,0 +1,37 @@
+<% if @conf_path_logs -%>
+ES_PATH_LOG=<%= @conf_path_logs %>
+<% else -%>
+#ES_PATH_LOG=/var/log/elasticsearch
+<% end -%>
+<% if @conf_path_data -%>
+ES_PATH_DATA=<%= @conf_path_data %>
+<% else -%>
+#ES_PATH_DATA=/var/lib/elasticsearch
+<% end -%>
+<% if @conf_path_work -%>
+ES_PATH_WORK=<%= @conf_path_work %>
+<% else -%>
+#ES_PATH_WORK=/tmp/elasticsearch
+<% end -%>
+<% if @conf_path_conf -%>
+ES_PATH_CONF=<%= @conf_path_conf %>
+<% else -%>
+#ES_PATH_CONF=/etc/elasticsearch
+<% end -%>
+#ES_CONFIG=/etc/elasticsearch/elasticsearch.yml
+
+<% if @es_include -%>
+ES_INCLUDE=<%= @es_include %>
+<% else -%>
+#ES_INCLUDE=/usr/share/java/elasticsearch/bin/elasticsearch.in.sh
+<% end -%>
+<% if @es_min_mem -%>
+ES_MIN_MEM=<%= @es_min_mem %>
+<% else -%>
+#ES_MIN_MEM=256m
+<% end -%>
+<% if @es_max_mem -%>
+ES_MAX_MEM=<%= @es_max_mem %>
+<% else -%>
+#ES_MAX_MEM=1g
+<% end -%>

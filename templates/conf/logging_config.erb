@@ -1,0 +1,48 @@
+rootLogger: <%
+  rootlogger = @logging_rootlogger
+
+  if rootlogger.kind_of?(Array)
+-%>
+<%= rootlogger.join(',') %>
+<% else -%>
+<%= rootlogger %>
+<% end -%>
+
+logger:
+<%
+  @logging_loggers.sort.map do |logger_name,logger_value|
+-%>
+  <%= logger_name %>: <%= logger_value %>
+<% end -%>
+
+appender:
+<%
+  @logging_appenders.sort.map do |appender,appender_params| -%>
+<%
+    if appender_params.kind_of?(Hash)
+-%>
+  <%= appender %>:
+<%
+      appender_params.sort.map do |param_name,param_value| -%>
+<%
+        if param_value.kind_of?(Hash)
+-%>
+    <%= param_name %>:
+<%
+          param_value.sort.map do |subparam_name,subparam_value| -%>
+      <%= subparam_name %>: <%= subparam_value %>
+<%
+          end
+        else
+-%>
+    <%= param_name %>: <%= param_value %>
+<%
+        end
+      end
+    else
+-%>
+  <%= appender %>: <%= appender_params %>
+<%
+    end
+  end
+-%>
