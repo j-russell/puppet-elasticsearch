@@ -31,5 +31,5 @@ description 'Requires elasticsearch rpms built using spec files provided by http
       \'cloud.node.auto_attributes\'  => \'true\',
     }
   }'
-dependency 'puppetlabs/stdlib', '>=3.1.0'
-dependency 'ripienaar/concat', '>=0.2.0'
+dependency 'puppetlabs/stdlib', '>=2.2.1'
+dependency 'ripienaar/concat', '>=0.1.0'
