@@ -1,37 +1,46 @@
 <% if @conf_path_logs -%>
-ES_PATH_LOG=<%= @conf_path_logs %>
+LOG_DIR=<%= @conf_path_logs %>
 <% else -%>
-#ES_PATH_LOG=/var/log/elasticsearch
+#LOG_DIR=/var/log/elasticsearch
 <% end -%>
 <% if @conf_path_data -%>
-ES_PATH_DATA=<%= @conf_path_data %>
+DATA_DIR=<%= @conf_path_data %>
 <% else -%>
-#ES_PATH_DATA=/var/lib/elasticsearch
+#DATA_DIR=/var/lib/elasticsearch
 <% end -%>
 <% if @conf_path_work -%>
-ES_PATH_WORK=<%= @conf_path_work %>
+WORK_DIR=<%= @conf_path_work %>
 <% else -%>
-#ES_PATH_WORK=/tmp/elasticsearch
+#WORK_DIR=/tmp/elasticsearch
 <% end -%>
 <% if @conf_path_conf -%>
-ES_PATH_CONF=<%= @conf_path_conf %>
+CONF_DIR=<%= @conf_path_conf %>
 <% else -%>
-#ES_PATH_CONF=/etc/elasticsearch
+#CONF_DIR=/etc/elasticsearch
 <% end -%>
-#ES_CONFIG=/etc/elasticsearch/elasticsearch.yml
+#CONF_FILE=/etc/elasticsearch/elasticsearch.yml
 
-<% if @es_include -%>
-ES_INCLUDE=<%= @es_include %>
+# Directory where the ElasticSearch binary distribution resides
+ES_HOME=/usr/share/elasticsearch
+
+# Heap Size (defaults to 256m min, 1g max)
+<% if@es_max_mem -%>
+ES_HEAP_SIZE=<%= @es_max_mem %>
 <% else -%>
-#ES_INCLUDE=/usr/share/java/elasticsearch/bin/elasticsearch.in.sh
+#ES_HEAP_SIZE=1g
 <% end -%>
-<% if @es_min_mem -%>
-ES_MIN_MEM=<%= @es_min_mem %>
-<% else -%>
-#ES_MIN_MEM=256m
-<% end -%>
-<% if @es_max_mem -%>
-ES_MAX_MEM=<%= @es_max_mem %>
-<% else -%>
-#ES_MAX_MEM=1g
-<% end -%>
+
+# Heap new generation
+#ES_HEAP_NEWSIZE=
+
+# max direct memory
+#ES_DIRECT_SIZE=
+
+# Additional Java OPTS
+#ES_JAVA_OPTS=
+
+# Maximum number of open files
+MAX_OPEN_FILES=65535
+
+# Maximum amount of locked memory
+#MAX_LOCKED_MEMORY=
