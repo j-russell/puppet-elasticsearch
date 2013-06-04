@@ -80,6 +80,7 @@ class elasticsearch (
   service { $service:
     ensure    => $service_ensure,
     enable    => $service_enable,
+    start     => '/etc/init.d/elasticsearch start',
     hasstatus => true,
     require   => Package[$package],
   }
