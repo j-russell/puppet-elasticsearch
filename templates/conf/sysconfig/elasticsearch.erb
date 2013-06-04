@@ -15,10 +15,11 @@ WORK_DIR=<%= @conf_path_work %>
 <% end -%>
 <% if @conf_path_conf -%>
 CONF_DIR=<%= @conf_path_conf %>
+CONF_FILE=<%= @conf_path_conf %>/elasticsearch.yml
 <% else -%>
 #CONF_DIR=/etc/elasticsearch
-<% end -%>
 #CONF_FILE=/etc/elasticsearch/elasticsearch.yml
+<% end -%>
 
 # Directory where the ElasticSearch binary distribution resides
 ES_HOME=/usr/share/elasticsearch
