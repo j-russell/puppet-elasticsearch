@@ -2,7 +2,10 @@ ES_USER=<%= @user %>
 <% if @conf_path_logs -%>
 LOG_DIR=<%= @conf_path_logs %>
 <% else -%>
-#LOG_DIR=/var/log/elasticsearch
+<% if @conf_path_logs -%>
+LOG_DIR=<%= @conf_path_logs %>
+<% else -%>
+LOG_DIR=/var/log/elasticsearch
 <% end -%>
 <% if @conf_path_data -%>
 DATA_DIR=<%= @conf_path_data %>
