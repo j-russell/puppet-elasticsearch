@@ -3,7 +3,7 @@ puppet-elasticsearch
 
 Puppet Elasticsearch module
 
-This module installs and configures Elasticsearch. The Elasticsearch RPMs were built using the spec files provided by [tavisto/elasticsearch-rpms](https://github.com/tavisto/elasticsearch-rpms)
+This module installs and configures Elasticsearch. The Elasticsearch RPMs are available at [elasticsearch.org/download/](http://www.elasticsearch.org/download/)
 
 -
 
